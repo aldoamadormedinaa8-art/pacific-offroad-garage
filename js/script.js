@@ -58,10 +58,10 @@ function animateCounter(el, target, duration = 1800) {
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.currentTarget.querySelectorAll('.stat-num').forEach(el => {
+      e.target.querySelectorAll('.stat-num').forEach(el => {
         animateCounter(el, parseInt(el.dataset.count, 10));
       });
-      statsObserver.unobserve(e.currentTarget);
+      statsObserver.unobserve(e.target);
     }
   });
 }, { threshold: 0.5 });
